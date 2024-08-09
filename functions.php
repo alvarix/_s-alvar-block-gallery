@@ -24,6 +24,18 @@ function pp_register_acf_blocks() {
 add_action( 'init', 'pp_register_acf_blocks' );
 
 
+add_filter('acf/load_field/name=select_post_type', 'acf_load_post_types');
+
+function acf_load_post_types($field)
+{
+
+    $choices = get_post_types( array( 'show_in_nav_menus' => true ), 'objects' );
+
+    foreach ( $choices as $post_type ) :
+        $field['choices'][$post_type->name] = $post_type->labels->singular_name;
+    endforeach;
+    return $field;
+}
 
 
 update_option( 'thumbnail_size_h', 400 );
