@@ -1,0 +1,15 @@
+.pp-gallery {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+}
+.pp-gallery li {
+    width: 20%;
+}
+
+.pp-gallery img {
+    max-width: 400px;
+    width: 100%;
+}

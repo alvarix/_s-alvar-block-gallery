@@ -1,0 +1,17 @@
+{
+    "name": "acf/gallery",
+    "title": "PP Gallery",
+    "description": "A custom Gallery",
+    "style": [ "file:./gallery.css" ],
+    "category": "main",
+    "icon": "admin-generic",
+    "keywords": ["gallery", "portfolio"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "gallery.php"
+    },
+    "supports": {
+        "alignWide": true,
+        "multiple": false
+    }
+}
