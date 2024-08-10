@@ -998,6 +998,15 @@ header * {
 	margin-top: 0;
 }
 
+#lightbox-title {
+	margin-top: 0;
+}
+
+
+figure {
+	margin: 0;
+}
+
 #lightbox {
     position: fixed;
     top: 0;
@@ -1021,7 +1030,7 @@ header * {
 #lightbox img {
     max-width: 100%;
     margin-bottom: 15px;
-	max-height: 70vw;
+	max-height: 85vh;
 }
 
 .lightbox-content .close {
