@@ -962,9 +962,8 @@ textarea {
 */
 
 :root {
-    --font:  "Caprasimo", serif;
     --font:  "Cooper Black", "cooper-black-std", "Caprasimo", serif;
-    --font-body: Georgia, 'Times New Roman', Times, serif;
+    --font-body: 'Lato', sans-serif;
     --btn-color: #FEC97A;
 }
 
@@ -972,6 +971,16 @@ h1, h2 {
 	font-family: var(--font);
 }
 
+a:hover,
+a:visited,
+a {
+	color: black;
+	font-family: var(--font-body);
+}
+
+a:hover {
+	text-decoration: underline;
+}
 
 .container {
 	width: 85%;
@@ -991,12 +1000,66 @@ header * {
 
 .site-title {
 	margin-bottom: 0;
+}
+
+.site-title a {
 	font-family: var(--font);
+	text-decoration: none;
+	font-size: 46px;
 }
 
 .site-description {
 	margin-top: 0;
+	font-weight: bold;
 }
+
+.main-navigation a {
+	padding: 10px 20px;
+	text-align: right;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.main-navigation .btn {
+	margin-left: 30px;
+}
+
+.btn {
+	position: relative;
+	overflow: hidden;
+	transition: color 0.3s ease;
+	z-index: 1;
+
+	border-radius: 25px;
+	background-color: var(--btn-color);
+	text-align: center;
+}
+
+.btn a {
+	text-align: center;
+	text-decoration: none;
+}
+
+.btn::before  {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background-color: #FF6B4A; /* A redder color for the hover */
+	transition: left 0.4s ease;
+	z-index: -1;
+}
+
+.btn:hover::before {
+	left: 0; /* Moves the redder color into view */
+}
+
+.btn a:hover {
+	color: #fff; /* Ensures the text remains visible */
+}
+
 
 #lightbox-title {
 	margin-top: 0;
