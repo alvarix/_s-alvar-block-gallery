@@ -1030,7 +1030,8 @@ figure {
 #lightbox img {
     max-width: 100%;
     margin-bottom: 15px;
-	max-height: 85vh;
+	height: 85vh;
+	max-height: 1200px;
 }
 
 .lightbox-content .close {
@@ -1069,3 +1070,10 @@ figure {
     max-height: 95vh; /* Ensures the content doesn't exceed 80% of the viewport height */
     overflow-y: auto; /* Allows scrolling inside the lightbox content */
 }
+
+
+.home .entry-header {
+	display: none;
+}
+
+
