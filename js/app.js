@@ -69,3 +69,15 @@ jQuery(document).ready(function($) {
         }
     });
 });
+
+window.addEventListener("scroll", () => {
+    const scalingElement = document.querySelector("header");
+    const scrollY = window.scrollY || window.pageYOffset;
+  
+    // If scrolled more than 100px, add the scaling class
+    if (scrollY > 100) {
+      scalingElement.classList.add("scroll");
+    } else {
+      scalingElement.classList.remove("scroll");
+    }
+  });
