@@ -31,7 +31,8 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', '_s' ); ?></a>
 
-	<header id="masthead" class="site-header container">
+	<header id="masthead" class="site-header ">
+		<div class="header-inner container flex">
 		<div class="site-branding">
 			<?php
 			the_custom_logo();
@@ -62,4 +63,5 @@
 			);
 			?>
 		</nav><!-- #site-navigation -->
+		</div>
 	</header><!-- #masthead -->
