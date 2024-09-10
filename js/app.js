@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const targetSection = document.querySelector(link.getAttribute('href'));
         if (targetSection) {
           window.scrollTo({
-            top: targetSection.offsetTop, // Adjust for fixed nav bar
+            top: targetSection.offsetTop - 35, // Adjust for fixed nav bar
             behavior: 'smooth'
           });
           console.log(`Scrolling to:`, targetSection.id);

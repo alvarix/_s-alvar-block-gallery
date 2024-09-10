@@ -12,6 +12,10 @@ Version: 1.0.0
 	--max-width: 1200px;
 	--max-p: 40rem;
 	--v-pad: 80px 0;
+    --font:  "Cooper Black", "cooper-black-std", "Caprasimo", serif;
+    --font-body: 'Lato', sans-serif;
+    --btn-color: #FEC97A;
+    --btn-color-hover: #FF6B4A;
 }
 
 html {
@@ -743,8 +747,7 @@ textarea {
 	display: block;
 }
 
-.post,
-.page {
+.post {
 	margin: 0 0 1.5em;
 }
 
@@ -971,11 +974,7 @@ textarea {
 *
 */
 
-:root {
-    --font:  "Cooper Black", "cooper-black-std", "Caprasimo", serif;
-    --font-body: 'Lato', sans-serif;
-    --btn-color: #FEC97A;
-}
+
 
 h1, h2 {
 	font-family: var(--font);
@@ -1036,7 +1035,7 @@ header * {
 }
 
 .menu-item .active {
-	color: red;
+	color: var(--btn-color-hover);
 }
 
 .site-title {
@@ -1082,6 +1081,9 @@ header * {
 	background-color:transparent;
 	cursor: pointer;
 	border: none;
+	text-transform: uppercase;
+	font-weight: bold;
+	padding: 10px 20px;
 }
 
 footer .btn {
@@ -1090,6 +1092,10 @@ footer .btn {
 
 input.email {
 	width: 20rem;
+	padding: 10px 20px;
+}
+input.email:focus {
+	background-color: var(--btn-color);
 }
 
 .btn a {
@@ -1104,7 +1110,7 @@ input.email {
 	left: -100%;
 	width: 100%;
 	height: 100%;
-	background-color: #FF6B4A; /* A redder color for the hover */
+	background-color: var(--btn-color-hover);
 	transition: left 0.4s ease;
 	z-index: -1;
 }
@@ -1113,6 +1119,7 @@ input.email {
 	left: 0; /* Moves the redder color into view */
 }
 
+.btn input:hover,
 .btn a:hover {
 	color: #fff; /* Ensures the text remains visible */
 }
@@ -1209,6 +1216,7 @@ figure {
 	background-color: #000;
 	color: #fff;
 	padding: var(--v-pad);
+	height: 700px;
 }
 
 #colophon a {
@@ -1217,7 +1225,7 @@ figure {
 
 .copyright {
 	width: 100%;
-	margin-top: 140px;
+	margin-top: 240px;
 }
 
 .copyright h4 {
@@ -1226,10 +1234,22 @@ figure {
 	margin-right: 15px;
 }
 
+h2 {
+	font-size: 36px;
+}
+
+h3 {
+	font-size: 28px;
+}
+
 footer h2 a,
 footer h2 a:hover,
 footer h3 {
 	font-family: var(--font);
+}
+
+#colophon a:hover {
+	color: var(--btn-color);
 }
 
 footer ul {
@@ -1246,6 +1266,10 @@ footer ul {
 	width: 20%;
 }
 
+#bio {
+	background-color: var(--btn-color);
+	margin-top: -10px;
+}
 
 @media screen AND (max-width: 500px) {
 	footer .flex {
