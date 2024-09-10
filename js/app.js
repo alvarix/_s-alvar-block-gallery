@@ -1,3 +1,8 @@
+
+//
+// Custom Lighbox
+//
+
 jQuery(document).ready(function($) {
     var currentIndex = 0;
     var posts = $('.post_thumbnail');
@@ -70,6 +75,12 @@ jQuery(document).ready(function($) {
     });
 });
 
+
+//
+// Shrinking sticky header onScroll
+//
+
+
 window.addEventListener("scroll", () => {
     const scalingElement = document.querySelector("header");
     const scrollY = window.scrollY || window.pageYOffset;
@@ -80,4 +91,84 @@ window.addEventListener("scroll", () => {
     } else {
       scalingElement.classList.remove("scroll");
     }
+  });
+
+
+
+
+
+//
+// Active Hash Link
+//
+document.addEventListener("DOMContentLoaded", () => {
+    // Select all the links that reference sections with '#' in href
+    const navLinks = document.querySelectorAll("#primary-menu .menu-item a[href^='#']");
+  
+    // Log the NodeList to ensure we're selecting the right elements
+    console.log(navLinks);
+  
+    if (navLinks.length === 0) {
+      console.error("No internal links found!");
+      return;
+    }
+  
+    // Function to remove 'active' class from all links
+    const removeActiveClasses = () => {
+      navLinks.forEach(link => link.classList.remove("active"));
+    };
+  
+    // Function to add 'active' class to the current link
+    const setActiveLink = () => {
+      const scrollPosition = window.scrollY + 100; // Offset for better triggering
+  
+      navLinks.forEach(link => {
+        const sectionId = link.getAttribute("href");
+        const sectionElement = document.querySelector(sectionId);
+  
+        if (sectionElement) {
+          const sectionOffset = sectionElement.offsetTop;
+  
+          // Add 'active' class if the scroll position is within the section
+          if (
+            scrollPosition >= sectionOffset &&
+            scrollPosition < sectionOffset + sectionElement.offsetHeight
+          ) {
+            removeActiveClasses();
+            link.classList.add("active");
+            console.log(`Active link:`, link.getAttribute("href"));
+          }
+        }
+      });
+    };
+  
+    // Listen for scroll events
+    window.addEventListener("scroll", setActiveLink);
+  
+    // Handle initial load (in case of page refresh with a hash)
+    window.addEventListener("load", () => {
+      setActiveLink();
+    });
+  
+    // Handle link clicks for smooth scrolling
+    navLinks.forEach(link => {
+      link.addEventListener("click", event => {
+        event.preventDefault(); // Prevent default hash behavior
+  
+        // Remove 'active' class from all links
+        removeActiveClasses();
+  
+        // Add 'active' class to the clicked link
+        link.classList.add("active");
+  
+        // Smooth scroll to the section
+        const targetSection = document.querySelector(link.getAttribute('href'));
+        if (targetSection) {
+          window.scrollTo({
+            top: targetSection.offsetTop, // Adjust for fixed nav bar
+            behavior: 'smooth'
+          });
+          console.log(`Scrolling to:`, targetSection.id);
+        }
+      });
+    });
   });

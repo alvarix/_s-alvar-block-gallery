@@ -1029,6 +1029,10 @@ header * {
 	flex:1
 }
 
+.menu-item .active {
+	color: red;
+}
+
 .site-title {
 	margin-bottom: 0;
 }
@@ -1177,4 +1181,8 @@ figure {
 #bio .wp-block-group__inner-container {
 	margin: auto;
 	max-width: var(--max-p);
-}G
+}
+
+#colophon {
+	height: 500px;
+}
