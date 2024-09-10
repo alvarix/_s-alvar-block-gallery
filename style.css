@@ -11,6 +11,7 @@ Version: 1.0.0
 :root {
 	--max-width: 1200px;
 	--max-p: 40rem;
+	--v-pad: 80px 0;
 }
 
 html {
@@ -398,7 +399,7 @@ select,
 optgroup,
 textarea {
 	color: #404040;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-family: var(--font-body);
 	font-size: 1rem;
 	line-height: 1.5;
 }
@@ -987,8 +988,13 @@ a {
 	font-family: var(--font-body);
 }
 
-a:hover {
+a {
 	text-decoration: underline;
+}
+
+a:hover {
+	text-decoration: none;
+	font-weight: bold;
 }
 
 .flex {
@@ -1068,6 +1074,22 @@ header * {
 	border-radius: 25px;
 	background-color: var(--btn-color);
 	text-align: center;
+	display: inline-block;
+}
+
+
+.btn input {
+	background-color:transparent;
+	cursor: pointer;
+	border: none;
+}
+
+footer .btn {
+	margin-top: 20px;
+}
+
+input.email {
+	width: 20rem;
 }
 
 .btn a {
@@ -1184,5 +1206,49 @@ figure {
 }
 
 #colophon {
-	height: 500px;
+	background-color: #000;
+	color: #fff;
+	padding: var(--v-pad);
+}
+
+#colophon a {
+	color: #fff;
+}
+
+.copyright {
+	width: 100%;
+	margin-top: 140px;
+}
+
+.copyright h4 {
+	display: inline;
+	font-size: 33px;
+	margin-right: 15px;
+}
+
+footer h2 a,
+footer h2 a:hover,
+footer h3 {
+	font-family: var(--font);
+}
+
+footer ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.foot1 {
+	width: 80%;
+}
+
+.foot2 {
+	width: 20%;
+}
+
+
+@media screen AND (max-width: 500px) {
+	footer .flex {
+		flex-direction: column;
+	}
 }
