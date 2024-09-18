@@ -14,7 +14,6 @@
         float: right;
     }
 
-
     .main-navigation .btn {
         width: 100%;
         margin: 0;
@@ -47,4 +46,5 @@
 	footer .flex {
 		flex-direction: column;
 	}
+
 }

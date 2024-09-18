@@ -1028,22 +1028,26 @@ header {
 	background: white;
 }
 
-.bio-img {
+.bio-img img {
 	margin-top: 50px;
-	border: 4px solid white;
+	border: 10px solid white;
 	border-radius: 20px;
 }
+
 .header-inner .site-title{	
 	transition: transform 0.5s ease-in-out;
 	transform: scale(1);
 }
+
+.scroll .header-inner .site-title{
+	transform: scale(.7);
+	transform-origin: left;
+}
+
 .header-inner {	
 	align-items: center;
 }
 
-.scroll .header-inner .site-title{
-	transform: scale(.7);
-}
 
 .scroll .site-description {
 	display: none;
