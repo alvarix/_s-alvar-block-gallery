@@ -1,0 +1,6 @@
+
+@media screen AND (max-width: 500px) {
+	footer .flex {
+		flex-direction: column;
+	}
+}
