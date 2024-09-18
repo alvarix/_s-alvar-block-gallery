@@ -1,7 +1,9 @@
 jQuery(document).ready(function($) {
     var currentIndex = 0;
     var posts = $('.post_thumbnail');
-
+    
+    $('#spinner').show();
+    
     function showLightbox(index) {
         var post = $(posts[index]);
         var id_post = post.attr('post_id');
@@ -17,7 +19,7 @@ jQuery(document).ready(function($) {
                 if (response.success) {
                     $('#lightbox-image').attr('src', response.data.image_url);
                     $('#lightbox-title').text(response.data.title);
-                    $('#lightbox-description').html(response.data.description); // Allow HTML in description    
+                    $('#lightbox-description').html(response.data.description); 
                     $('#lightbox-date').text(response.data.date);
 
                     $('#lightbox').fadeIn();
@@ -27,6 +29,9 @@ jQuery(document).ready(function($) {
             },
             error: function() {
                 alert("An error occurred while fetching the post data.");
+            },
+            complete: function() {
+                $('#spinner').hide();
             }
         });
     }

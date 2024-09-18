@@ -14,6 +14,18 @@
     width: 100%;
 }
 
+#spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+
+#spinner {
+    display: none;
+}
 
 @media screen AND (max-width: 500px) {
 	footer .flex {
