@@ -1280,6 +1280,12 @@ footer h3 {
 	color: var(--btn-color);
 }
 
+
+footer {
+	background-image: url(/wp-content/themes/_s_alvar/images/bg-blotter.webp);
+	background-size: cover;
+}
+
 footer ul {
 	margin: 0;
 	padding: 0;
