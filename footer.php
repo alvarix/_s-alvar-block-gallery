@@ -48,9 +48,9 @@
 				<div class="foot2">
 					<h3>Links</h3>
 					<ul>
-						<li><a href="https://instagram.com/alvar_en">Instagram</a></li>
-						<li><a href="https://alvarix.etsy.com">Etsy</a></li>
-						<li><a href="https://alvarsirlin.com">Web Development</a></li>
+						<li><a target='_blank' href="https://instagram.com/alvar_en">Instagram</a></li>
+						<li><a target='_blank' href="https://alvarix.etsy.com">Etsy</a></li>
+						<li><a target='_blank' href="https://alvarsirlin.com">Web Development</a></li>
 					</ul>
 				</div><!-- .foot2 -->
 			</div><!-- .flex -->
