@@ -13,6 +13,10 @@ jQuery(document).ready(function($) {
     function showLightbox(index) {
         var post = $(posts[index]);
         var id_post = post.attr('post_id');
+
+
+        $('#spinner').show();
+
         $.ajax({
             type: 'POST',
             url: my_ajax_object.ajax_url,
@@ -33,6 +37,9 @@ jQuery(document).ready(function($) {
             },
             error: function() {
                 alert("An error occurred while fetching the post data.");
+            },
+            complete: function() {
+                $('#spinner').hide();
             }
         });
     }
