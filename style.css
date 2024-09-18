@@ -697,22 +697,35 @@ textarea {
 	text-decoration: none;
 }
 
+.menu-menu-1-container {
+	position: relative;;
+}
+
+.toggled #primary-menu {
+	position: absolute;
+    right: 10px;
+    background: white;
+    padding: 30px;
+    top: 50px;
+}
+
+.menu-toggle {
+	background-color: transparent;
+	border: none;
+}
+
+.menu-toggle svg {
+	height: 30px;
+	width: 30px;
+	cursor: pointer;
+}
+
 /* Small menu. */
 .menu-toggle,
 .main-navigation.toggled ul {
 	display: block;
 }
 
-@media screen and (min-width: 37.5em) {
-
-	.menu-toggle {
-		display: none;
-	}
-
-	.main-navigation ul {
-		display: flex;
-	}
-}
 
 .site-main .comment-navigation,
 .site-main
@@ -1007,25 +1020,35 @@ a:hover {
 }
 
 header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+	Xdisplay: flex;
+	Xjustify-content: space-between;
+	Xalign-items: center;
 	position: sticky;
 	top:0;
 	background: white;
-	
 }
 
-.header-inner {	
-	transform: scale(1);
+.bio-img {
+	margin-top: 50px;
+	border: 4px solid white;
+	border-radius: 20px;
+}
+.header-inner .site-title{	
 	transition: transform 0.5s ease-in-out;
+	transform: scale(1);
+}
+.header-inner {	
 	align-items: center;
 }
 
-.scroll .header-inner {
+.scroll .header-inner .site-title{
 	transform: scale(.7);
 }
-.scroll .site-description,
+
+.scroll .site-description {
+	display: none;
+}
+
 .scroll .site-title {
 	margin: 0;
 }
@@ -1062,6 +1085,7 @@ header * {
 
 .main-navigation .btn {
 	margin-left: 30px;
+	flex: none;
 }
 
 .btn {
@@ -1269,10 +1293,4 @@ footer ul {
 #bio {
 	background-color: var(--btn-color);
 	margin-top: -10px;
-}
-
-@media screen AND (max-width: 500px) {
-	footer .flex {
-		flex-direction: column;
-	}
 }

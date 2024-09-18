@@ -1,3 +1,47 @@
+@media screen and (min-width: 850px) {
+
+	.menu-toggle {
+		display: none;
+	}
+
+	.main-navigation ul {
+		display: flex;
+	}
+}
+
+@media screen AND (max-width: 850px) {
+    .menu-toggle {
+        float: right;
+    }
+
+
+    .main-navigation .btn {
+        width: 100%;
+        margin: 0;
+    }
+
+    .header-inner {
+        justify-content: end;
+        align-items: end;
+    }
+
+    .main-navigation ul {
+        Xmargin-left: -55px;
+        Xtransform: rotate(180deg);
+    }
+
+    X.main-navigation ul > li {
+        transform: rotate(-180deg);
+    }
+
+    .site-title a {
+        font-size: 32px;
+    }
+
+    .site-description {
+        display: none;
+    }
+}
 
 @media screen AND (max-width: 500px) {
 	footer .flex {

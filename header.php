@@ -52,7 +52,12 @@
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', '_s' ); ?></button>
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">  <!-- Hamburger menu icon as SVG -->
+  <svg class="hamburger" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80" width="40" height="40">
+    <rect width="100" height="10" fill="black"></rect>
+    <rect y="30" width="100" height="10" fill="black"></rect>
+    <rect y="60" width="100" height="10" fill="black"></rect>
+  </svg></button>
 			<?php
 			wp_nav_menu(
 				array(

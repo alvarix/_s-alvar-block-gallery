@@ -4,6 +4,9 @@
 //
 
 jQuery(document).ready(function($) {
+
+    $(".wp-block-group__inner-container").addClass('container');
+
     var currentIndex = 0;
     var posts = $('.post_thumbnail');
 
