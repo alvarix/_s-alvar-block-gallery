@@ -83,27 +83,42 @@ jQuery(document).ready(function($) {
             }
         }
     });
-});
 
+  //
+  // Shrinking sticky header onScroll
+  //
 
-//
-// Shrinking sticky header onScroll
-//
+  function throttle(fn, wait) {
+    let lastTime = 0;
+    return function(...args) {
+      const now = new Date().getTime();
+      if (now - lastTime >= wait) {
+        fn(...args);
+        lastTime = now;
+      }
+    };
+  }
 
-
-window.addEventListener("scroll", () => {
     const scalingElement = document.querySelector("header");
-    const scrollY = window.scrollY || window.pageYOffset;
-  
-    // If scrolled more than 100px, add the scaling class
-    if (scrollY > 100) {
-      scalingElement.classList.add("scroll");
-    } else {
-      scalingElement.classList.remove("scroll");
-    }
-  });
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY || window.pageYOffset;
+    
+      // If scrolled more than 100px, add the scaling class
+      if (scrollY > 100) {
+        scalingElement.classList.add("scroll");
+      } else {
+        scalingElement.classList.remove("scroll");
+      }
+    };
+    
+    // Throttle the scroll event to fire every 100ms
+    window.addEventListener("scroll", throttle(handleScroll, 100));
+    
+    
 
 
+});
 
 
 
