@@ -63,6 +63,7 @@
 	max-height: 1200px;
 	border: 30px solid white;
     position: relative;
+    object-fit: cover;   
 
 }
 
@@ -88,6 +89,7 @@
     background-color: rgba(255,255,255,0.9);
     padding: 10px;
 	text-decoration: none;
+    z-index: 100;
 }
 
 .lightbox-content .prev {
@@ -113,4 +115,7 @@
         width: 50%;
     }
 
+    #lightbox img {
+        height: auto;
+    }
 }
