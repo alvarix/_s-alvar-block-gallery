@@ -9,14 +9,14 @@ jQuery(document).ready(function($) {
 
     var currentIndex = 0;
     var posts = $('.post_thumbnail');
-
+    var startX, startY;
+    
     function showLightbox(index) {
         var post = $(posts[index]);
         var id_post = post.attr('post_id');
-
-
+    
         $('#spinner').show();
-
+    
         $.ajax({
             type: 'POST',
             url: my_ajax_object.ajax_url,
@@ -43,27 +43,27 @@ jQuery(document).ready(function($) {
             }
         });
     }
-
+    
     function closeLightbox() {
         $('#lightbox').fadeOut();
     }
-
+    
     function showNextImage() {
         currentIndex = (currentIndex === posts.length - 1) ? 0 : currentIndex + 1;
         showLightbox(currentIndex);
     }
-
+    
     function showPreviousImage() {
         currentIndex = (currentIndex === 0) ? posts.length - 1 : currentIndex - 1;
         showLightbox(currentIndex);
     }
-
+    
     $(".post_thumbnail").click(function(event) {
         event.preventDefault();
         currentIndex = $(this).index('.post_thumbnail');
         showLightbox(currentIndex);
     });
-
+    
     $('.close').click(closeLightbox);
     $('.prev').click(showPreviousImage);
     $('.next').click(showNextImage);
@@ -81,6 +81,37 @@ jQuery(document).ready(function($) {
                     showNextImage();
                     break;
             }
+        }
+    });
+    
+    // Touch event listeners for swipe functionality
+    $('#lightbox').on('touchstart', function(event) {
+        var touch = event.touches[0];
+        startX = touch.clientX;
+        startY = touch.clientY;
+    });
+    
+    $('#lightbox').on('touchmove', function(event) {
+        if (!startX || !startY) {
+            return;
+        }
+    
+        var touch = event.touches[0];
+        var diffX = startX - touch.clientX;
+        var diffY = startY - touch.clientY;
+    
+        if (Math.abs(diffX) > Math.abs(diffY)) {
+            // Left or right swipe
+            if (diffX > 0) {
+                // Swipe left (next image)
+                showNextImage();
+            } else {
+                // Swipe right (previous image)
+                showPreviousImage();
+            }
+            // Reset values after swipe
+            startX = null;
+            startY = null;
         }
     });
 
