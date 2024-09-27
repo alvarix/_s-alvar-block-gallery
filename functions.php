@@ -12,6 +12,22 @@ if ( ! defined( '_S_VERSION' ) ) {
 	define( '_S_VERSION', '1.0.0' );
 }
 
+
+function add_google_analytics() {
+    ?>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-H62DVD6H1D');  // Replace with your tracking ID
+    </script>
+    <?php
+}
+add_action('wp_head', 'add_google_analytics');
+
 function pp_register_acf_blocks() {
     /**
      * We register our block's with WordPress's handy
