@@ -1,3 +1,8 @@
+This theme is a modification of the _s theme by Automattic. 
+Documentation beow. 
+It is hosted on nearlyfreespeech.net and deploys over ssh with a gitpull, aliased nfsup;
+
+
 === _s ===
 
 Contributors: automattic
