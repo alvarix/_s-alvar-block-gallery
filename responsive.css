@@ -1,3 +1,4 @@
+
 @media screen and (min-width: 850px) {
 
 	.menu-toggle {
@@ -35,6 +36,13 @@
     }
 
 
+}
+
+
+@media screen AND (max-width: 400px) {
+    .site-title a {
+        font-size: 20px;
+    }
 }
 
 
