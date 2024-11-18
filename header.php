@@ -31,6 +31,12 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', '_s' ); ?></a>
 
 	<header id="masthead" class="site-header ">
+	<div id="super-header">
+	<div class='container'>
+		<?php include('_mc-signup-form.php'); ?>
+	</div>
+	</div>
+
 		<div class="header-inner container flex">
 		<div class="site-branding">
 			<?php
