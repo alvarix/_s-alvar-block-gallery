@@ -1,3 +1,58 @@
+/**
+ * Dynamically generates links to change the number of columns in a .pp-gallery element.
+ * Each link, when clicked, adjusts the width of .pp-gallery li elements to match the selected column count.
+ */
+function setupGalleryColumns() {
+  // Select the .pp-gallery element and check if it exists
+  const gallery = document.querySelector('.pp-gallery');
+  if (!gallery) return;
+
+  // Calculate the initial number of columns based on the width of the first li element
+  const firstItem = gallery.querySelector('li');
+  if (!firstItem) return;
+
+  const itemWidth = parseFloat(window.getComputedStyle(firstItem).width);
+  const galleryWidth = parseFloat(window.getComputedStyle(gallery).width);
+  const currentColumnCount = Math.round(galleryWidth / itemWidth);
+
+  // Create a container for the column selection links
+  const linkContainer = document.createElement('div');
+  linkContainer.classList.add('column-links', 'container');
+  linkContainer.style.marginBottom = '10px';
+  gallery.before(linkContainer);
+
+  // Generate links to set column counts from 1 up to the currentColumnCount
+  for (let i = 1; i <= currentColumnCount; i++) {
+    const link = document.createElement('a');
+    link.href = '#';
+    link.textContent = `${i} Column${i > 1 ? 's' : ''}`;
+    link.style.marginRight = '10px';
+
+    // Set column layout on click
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      setGalleryColumns(i);
+    });
+
+    // Append link to the container
+    linkContainer.appendChild(link);
+  }
+
+  /**
+   * Adjusts the width of each li element in .pp-gallery based on the selected column count.
+   * @param {number} columns - Number of columns to set.
+   */
+  function setGalleryColumns(columns) {
+    const items = gallery.querySelectorAll('li');
+    const columnWidth = (100 / columns) + '%';
+
+    // Apply the calculated width to each list item
+    items.forEach(item => {
+      item.style.width = columnWidth;
+    });
+  }
+}
+
 
 //
 // Custom Lighbox
@@ -126,6 +181,10 @@ jQuery(document).ready(function($) {
 // Active Hash Link
 //
 document.addEventListener("DOMContentLoaded", () => {
+// Run the function to set up the column links and functionality
+setupGalleryColumns();
+
+
     // Select all the links that reference sections with '#' in href
     const navLinks = document.querySelectorAll("#primary-menu .menu-item a[href^='#']");
   
