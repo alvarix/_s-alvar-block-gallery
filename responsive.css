@@ -7,9 +7,15 @@
 	.main-navigation ul {
 		display: flex;
 	}
+
 }
 
 @media screen AND (max-width: 850px) {
+    input.email {
+        width: 10rem;
+        margin-right: 10px;
+    }
+
     .menu-toggle {
         float: right;
     }
@@ -29,6 +35,20 @@
     }
 
 
+}
+
+
+
+@media screen AND (max-width: 650px) {
+    #mc-embedded-subscribe-form {
+        flex-direction: column;
+        align-items: unset;
+    }
+
+    input.email {
+        margin: 0 0 10px 0;
+        width: 8rem;
+    }
 }
 
 @media screen AND (max-width: 500px) {

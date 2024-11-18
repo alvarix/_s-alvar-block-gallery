@@ -31,12 +31,6 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', '_s' ); ?></a>
 
 	<header id="masthead" class="site-header ">
-	<div id="super-header">
-	<div class='container'>
-		<?php include('_mc-signup-form.php'); ?>
-	</div>
-	</div>
-
 		<div class="header-inner container flex">
 		<div class="site-branding">
 			<?php
@@ -58,12 +52,16 @@
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
+			<div class='bug'>
+				<?php include('_mc-signup-form.php'); ?>
+			</div>
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">  <!-- Hamburger menu icon as SVG -->
-  <svg class="hamburger" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80" width="40" height="40">
-    <rect width="100" height="10" fill="black"></rect>
-    <rect y="30" width="100" height="10" fill="black"></rect>
-    <rect y="60" width="100" height="10" fill="black"></rect>
-  </svg></button>
+				<svg class="hamburger" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80" width="40" height="40">
+					<rect width="100" height="10" fill="black"></rect>
+					<rect y="30" width="100" height="10" fill="black"></rect>
+					<rect y="60" width="100" height="10" fill="black"></rect>
+				</svg>
+			</button>
 			<?php
 			wp_nav_menu(
 				array(
