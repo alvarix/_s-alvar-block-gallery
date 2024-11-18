@@ -1021,6 +1021,7 @@ a:hover {
 }
 
 header {
+	z-index: 9999;
 	position: sticky;
 	top:0;
 	background: rgb(255,255,255);
