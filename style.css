@@ -1277,3 +1277,13 @@ input.email {
 input.email:focus {
 	background-color: var(--btn-color);
 }
+
+.column-select select {
+	padding: 10px;
+	color: #aaa;
+}
+
+
+.column-select select:hover {
+	color: #000
+}

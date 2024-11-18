@@ -1,6 +1,6 @@
 /**
- * Dynamically generates links to change the number of columns in a .pp-gallery element.
- * Each link, when clicked, adjusts the width of .pp-gallery li elements to match the selected column count.
+ * Dynamically creates a select menu to change the number of columns in a .pp-gallery element.
+ * The selected option will adjust the width of .pp-gallery li elements to match the chosen column count.
  */
 function setupGalleryColumns() {
   // Select the .pp-gallery element and check if it exists
@@ -15,28 +15,31 @@ function setupGalleryColumns() {
   const galleryWidth = parseFloat(window.getComputedStyle(gallery).width);
   const currentColumnCount = Math.round(galleryWidth / itemWidth);
 
-  // Create a container for the column selection links
-  const linkContainer = document.createElement('div');
-  linkContainer.classList.add('column-links', 'container');
-  linkContainer.style.marginBottom = '10px';
-  gallery.before(linkContainer);
+  // Create a container for the select menu
+  const selectContainer = document.createElement('div');
+  selectContainer.classList.add('column-select', 'container'); // Add both classes
+  selectContainer.style.marginBottom = '10px';
+  gallery.before(selectContainer);
 
-  // Generate links to set column counts from 1 up to the currentColumnCount
-  for (let i = 1; i <= currentColumnCount; i++) {
-    const link = document.createElement('a');
-    link.href = '#';
-    link.textContent = `${i} Column${i > 1 ? 's' : ''}`;
-    link.style.marginRight = '10px';
+  // Create the select element
+  const selectMenu = document.createElement('select');
+  selectMenu.setAttribute('aria-label', 'Select number of columns');
 
-    // Set column layout on click
-    link.addEventListener('click', (event) => {
-      event.preventDefault();
-      setGalleryColumns(i);
-    });
-
-    // Append link to the container
-    linkContainer.appendChild(link);
+  // Populate the select menu with options from currentColumnCount down to 1
+  for (let i = currentColumnCount; i >= 1; i--) {
+    const option = document.createElement('option');
+    option.value = i;
+    option.textContent = `${i} Column${i > 1 ? 's' : ''}`;
+    selectMenu.appendChild(option);
   }
+
+  // Change column layout on selection change
+  selectMenu.addEventListener('change', (event) => {
+    setGalleryColumns(parseInt(event.target.value, 10));
+  });
+
+  // Append the select menu to the container
+  selectContainer.appendChild(selectMenu);
 
   /**
    * Adjusts the width of each li element in .pp-gallery based on the selected column count.
@@ -52,6 +55,7 @@ function setupGalleryColumns() {
     });
   }
 }
+
 
 
 //
