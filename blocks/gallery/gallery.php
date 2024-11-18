@@ -33,13 +33,15 @@ if ($posts):
 
 <ul class="<?php echo esc_attr($class_name); ?>">
     <?php foreach ($posts as $post):
+        $dont_use_alt_thumb = get_field('dont_use_alt_thumb', $post->ID);
+        $thumb_alt = get_field('thumb', $post->ID);
         $id = $post->ID;
         $title = get_the_title($post->ID);
         $link = get_the_permalink($post->ID);
 
-        if(get_field('dont_use_thumb') != false) {
-            $thumb = get_field('thumb', $post->ID);
-        } elseif (get_field('dont_use_thumb') == false) {
+        if( $dont_use_alt_thumb !=true && $thumb_alt !='' ){
+            $thumb = $thumb_alt;
+        } else {
             $thumb = get_the_post_thumbnail_url($post->ID, 'thumbnail');
         }
     ?>
