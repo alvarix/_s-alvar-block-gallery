@@ -39,8 +39,7 @@ if ($posts):
 
         if(get_field('dont_use_thumb') != false) {
             $thumb = get_field('thumb', $post->ID);
-        }
-        if (!$thumb || get_field('dont_use_thumb') == false) {
+        } elseif (get_field('dont_use_thumb') == false) {
             $thumb = get_the_post_thumbnail_url($post->ID, 'thumbnail');
         }
     ?>
