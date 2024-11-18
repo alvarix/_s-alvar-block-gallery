@@ -37,8 +37,10 @@ if ($posts):
         $title = get_the_title($post->ID);
         $link = get_the_permalink($post->ID);
 
-        $thumb = get_field('thumb', $post->ID);
-        if (!$thumb && get_field('use_thumb') != false) {
+        if(!get_field('dont_use_thumb')) {
+            $thumb = get_field('thumb', $post->ID);
+        }
+        if (!$thumb || get_field('dont_use_thumb')) {
             $thumb = get_the_post_thumbnail_url($post->ID, 'thumbnail');
         }
     ?>
