@@ -12,6 +12,12 @@
 .pp-gallery img {
     max-width: 400px;
     width: 100%;
+    display: block;
+    margin: auto;
+}
+
+.column-links {
+    font-size: 14px;
 }
 
 .spinner {
