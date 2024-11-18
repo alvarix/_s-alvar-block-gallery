@@ -47,7 +47,7 @@ if ($posts):
     ?>
     <li class="pp-gallery__image">
         <figure class="pp-gallery__image">
-            <a class="post_thumbnail" post_id="<?= esc_attr($id); ?>" href="<?= esc_url($link); ?>">
+            <a class="post_thumbnail" title="<?= esc_attr($title); ?>" post_id="<?= esc_attr($id); ?>" href="<?= esc_url($link); ?>">
                 <img src="<?= esc_url($thumb); ?>" width="400" alt="<?= esc_attr($title); ?>">
             </a>
         </figure>
