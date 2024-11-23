@@ -1025,7 +1025,7 @@ header {
 	position: sticky;
 	top:0;
 	background: rgb(255,255,255);
-	background: linear-gradient(180deg, rgba(255,255,255,1) 80%, rgba(2,0,36,0) 83%);
+	background: linear-gradient(180deg, rgba(255,255,255,1) 20%, rgba(2,0,36,0) 28%);
 	padding-bottom: 20px;
 }
 
