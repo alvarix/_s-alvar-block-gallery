@@ -1130,6 +1130,14 @@ header * {
 	color: #fff; /* Ensures the text remains visible */
 }
 
+.btn:focus {
+	border:1px solid red;
+}
+
+.btn:active {
+	background-color: red
+}
+
 figure {
 	margin: 0;
 }
@@ -1287,4 +1295,9 @@ input.email:focus {
 
 .column-select select:hover {
 	color: #000
+}
+
+
+.checkout {
+	cursor: pointer;
 }

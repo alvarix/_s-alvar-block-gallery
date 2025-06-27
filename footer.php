@@ -44,6 +44,35 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.checkout')
+    buttons.forEach(button => {
+      button.addEventListener('click', async () => {
+        try {
+          const res = await fetch('/wp-json/stripe-checkout/v1/create-session', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              shippingRateUS: 'shr_1Rej7CIo6VIMAeFqjH3zPMNA',
+              shippingRateINTL: 'shr_1Rej93Io6VIMAeFqzU8FfEE1',
+            })
+          })
+          const data = await res.json()
+          if (data.url) {
+            window.location.href = data.url
+          } else {
+            alert('There was an error creating your checkout session.')
+          }
+        } catch (err) {
+          console.error('Checkout error:', err)
+          alert('Something went wrong. Please try again.')
+        }
+      })
+    })
+  })
+</script>
+
 
 </body>
 </html>
