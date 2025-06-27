@@ -13,7 +13,7 @@
         </div>
         <div class="optionalParent">
             <div class="clear foot btn">
-                <input type="submit" name="subscribe" id="mc-embedded-subscribe"  value="Newsletter">
+                <input type="submit" name="subscribe" id="mc-embedded-subscribe"  value="Sign Up!">
             </div>
         </div>
     </form>
