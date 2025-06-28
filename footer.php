@@ -54,8 +54,11 @@
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-              shippingRateUS: 'shr_1Rej7CIo6VIMAeFqjH3zPMNA',
-              shippingRateINTL: 'shr_1Rej93Io6VIMAeFqzU8FfEE1',
+              shippingRateUS: 'shr_1Rf0LjKsvaxLGOVJHKTvtr0D',
+              shippingRateINTL: 'shr_1Rf0MCKsvaxLGOVJGqUXNCBl',
+              // dev
+              //shippingRateUS: 'shr_1Rf0K04IwG1sBeJEzZbdYVcD',
+              //shippingRateINTL: 'shr_1Rf0M54IwG1sBeJEfBUmmALk',
             })
           })
           const data = await res.json()
